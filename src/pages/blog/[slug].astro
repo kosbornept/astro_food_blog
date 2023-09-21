@@ -35,12 +35,19 @@ const {Content} = await post.render();
 		<H1 
             text={post.data.title} 
         ></H1>
-        <h5 class="text-2xl text-red-700 font-semibold mb-2">By {post.data.author}</h5>
-        <h6 class=" text-sm text-red-600 font-semibold mb-16">
-            <a class="hover:text-gray-500" href={post.data.link} target="_blank">
-                Original post
-            </a>
-        </h6>
+        <div class="flex justify-between mx-10">
+            <div>
+                <h5 class="text-2xl text-red-700 font-semibold mb-2">By {post.data.author}</h5>
+                <h6 class=" text-sm text-red-600 font-semibold mb-16">
+                    <a class="hover:text-gray-500" href={post.data.link} target="_blank">
+                        Original post
+                    </a>
+                </h6>
+            </div>
+            <div class=" mr-20">
+                <button class="text-white bg-red-500 p-3 rounded-md hover:bg-red-400 active:bg-red-600" onclick="history.back()">Blog List</button>
+            </div>
+        </div>
         <Image 
             src={post.data.image}
             alt={post.data.title}
@@ -48,6 +55,7 @@ const {Content} = await post.render();
             height={1024 / 2}
             format="webp"
             class="rounded-2xl shadow-xl mb-28 object-cover"
+            transition:name="postImage"
         />
         <div class="prose prose-2xl overflow-visible relative mb-20">
             <Content />
