@@ -55,7 +55,7 @@ const {Content} = await post.render();
             height={1024 / 2}
             format="webp"
             class="rounded-2xl shadow-xl mb-28 object-cover"
-            transition:name="postImage"
+            style={"view-transition-name: " + post.slug}
         />
         <div class="prose prose-2xl overflow-visible relative mb-20">
             <Content />
